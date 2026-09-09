@@ -48,7 +48,7 @@
                     </td>
                     <td>
                         <div class="flex gap-2">
-                            <a href="{{ route('bast.show', $bast->id) }}" class="btn btn-sm btn-secondary btn-icon" title="Lihat">
+                            <a href="{{ route('bast.show', $bast->id) }}" class="btn btn-sm btn-icon" style="background-color: #b9b5b545 !important; color: black !important; border: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);" title="Lihat">
                                 <i class='bx bx-show'></i>
                             </a>
                             @if(auth()->user()->role === 'admin')

@@ -10,8 +10,8 @@
             <i class='bx bx-info-circle' style="color: var(--primary); font-size: 24px;"></i> Informasi BAST #{{ $bast->id }}
         </h2>
         <div class="flex gap-2">
-            <a href="{{ route('bast.export', $bast->id) }}" class="btn btn-success">
-                <i class='bx bx-file-blank'></i> Cetak via Excel
+            <a href="{{ route('bast.export', $bast->id) }}" class="btn" style="background-color: #2563EB !important; color: white !important; border: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);">
+                <i class='bx bx-file-blank'></i> Cetak via Word
             </a>
             @if(auth()->user()->role === 'admin')
             <a href="{{ route('bast.edit', $bast->id) }}" class="btn btn-primary">
@@ -103,7 +103,7 @@
                     <td>{{ $minuta->developer }}</td>
                     <td>{{ $minuta->tgl_minuta }}</td>
                     <td>
-                        <a href="{{ route('minuta.show', $minuta->id) }}" class="btn btn-sm btn-secondary btn-icon" title="Lihat">
+                        <a href="{{ route('minuta.show', $minuta->id) }}" class="btn btn-sm btn-icon" style="background-color: #4d54614b !important; color: black !important; border: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);" title="Lihat">
                             <i class='bx bx-show'></i>
                         </a>
                     </td>

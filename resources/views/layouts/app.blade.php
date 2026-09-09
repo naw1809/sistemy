@@ -44,6 +44,7 @@
                     <span class="links_name">Riwayat BAST</span>
                 </a>
             </li>
+            @if(auth()->user()->role === 'admin')
             <li>
                 
                 <a href="{{ route('minuta.index') }}" class="{{ request()->routeIs('minuta.*') ? 'active' : '' }}">
@@ -51,6 +52,7 @@
                     <span class="links_name">Data Minuta</span>
                 </a>
             </li>
+            @endif
             <li class="profile" style="display: flex; align-items: center; justify-content: space-between;">
                 <div class="profile-details" style="display: flex; align-items: center; gap: 12px;">
                     <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=BE123C&color=fff" alt="profileImg">

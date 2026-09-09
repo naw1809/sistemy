@@ -71,7 +71,7 @@ class BastController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
-            'tipe_bast' => 'required|string|in:BAST Salinan,Minuta,Sertipikat,Salinan dan Sertipikat',
+            'tipe_bast' => 'required|string|in:BAST Salinan,BAST Minuta,Sertipikat,Salinan dan Sertipikat',
             'tgl_diserahkan' => 'required|date',
             'tgl_diterima' => 'nullable|date',
             'status' => 'required|string',
@@ -133,7 +133,7 @@ class BastController extends Controller
         
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
-            'tipe_bast' => 'required|string|in:BAST Salinan,Minuta,Sertipikat,Salinan dan Sertipikat',
+            'tipe_bast' => 'required|string|in:BAST Salinan,BAST Minuta,Sertipikat,Salinan dan Sertipikat',
             'tgl_diserahkan' => 'required|date',
             'tgl_diterima' => 'nullable|date',
             'status' => 'required|string',
@@ -163,36 +163,28 @@ class BastController extends Controller
     {
         $bast = Bast::with(['minutas', 'user'])->findOrFail($id);
 
-        $fileName = 'BAST_#' . $bast->id . '_' . str_replace(' ', '_', $bast->kc_btn) . '.xls';
+        $fileName = 'BAST_#' . $bast->id . '_' . str_replace(' ', '_', $bast->kc_btn) . '.doc';
 
         // Headers to download Excel file
-        header("Content-Type: application/vnd.ms-excel; charset=utf-8");
+        header("Content-Type: application/vnd.ms-word; charset=utf-8");
         header("Content-Disposition: attachment; filename=$fileName");
         header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
         header("Cache-Control: private", false);
 
-        // Build premium styled HTML Excel sheet
+        // Build premium styled HTML Excel sheet    
         echo "
         <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'>
         <head>
             <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-            <!--[if gte mso 9]>
-            <xml>
-                <x:ExcelWorkbook>
-                    <x:ExcelWorksheets>
-                        <x:ExcelWorksheet>
-                            <x:Name>Laporan BAST</x:Name>
-                            <x:WorksheetOptions>
-                                <x:DisplayGridlines/>
-                            </x:WorksheetOptions>
-                        </x:ExcelWorksheet>
-                    </x:ExcelWorksheets>
-                </x:ExcelWorkbook>
-            </xml>
-            <![endif]-->
+         
             <style>
-                body { font-family: 'Segoe UI', Arial, sans-serif; }
+                @page {
+                    size: A4 portrait;
+                    margin: 2cm;
+                    }
+                body { margin: 2cm auto; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; max-width: 17cm; }
+                .page-break { page-break-before: always; }
                 .title { font-size: 16pt; font-weight: bold; text-align: center; color: #1E293B; }
                 .subtitle { font-size: 10pt; text-align: center; color: #64748B; margin-bottom: 20px; }
                 .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 25px; }
@@ -201,7 +193,7 @@ class BastController extends Controller
                 .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
                 .data-table th { background-color: #4F46E5; color: #ffffff; font-weight: bold; font-size: 10pt; padding: 10px; border: 1px solid #CBD5E1; text-align: left; }
                 .data-table td { font-size: 9.5pt; padding: 8px 10px; border: 1px solid #E2E8F0; color: #1E293B; }
-                .badge-success { background-color: #DEF7EC; color: #03543F; font-weight: bold; padding: 3px 8px; border-radius: 4px; }
+                .badge-success { background-color: #a9b2c1ff; color: #0371a1ff; font-weight: bold; padding: 3px 8px; border-radius: 4px; }
                 .badge-warning { background-color: #FEF08A; color: #713F12; font-weight: bold; padding: 3px 8px; border-radius: 4px; }
             </style>
         </head>

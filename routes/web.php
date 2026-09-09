@@ -41,9 +41,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/bast/{id}/export', [App\Http\Controllers\BastController::class, 'export'])->name('bast.export');
 
-    Route::resource('/minuta', App\Http\Controllers\MinutaController::class)->parameters([
-        'minuta' => 'minuta'
-    ]);
+    Route::resource('/minuta', App\Http\Controllers\MinutaController::class)
+        ->parameters(['minuta' => 'minuta'])
+        ->middleware('admin.only');
     Route::get('/bast/history', [App\Http\Controllers\BastController::class, 'history'])->name('bast.history');
     Route::resource('/bast', App\Http\Controllers\BastController::class)->parameters([
         'bast' => 'bast'

@@ -14,7 +14,7 @@
     <!-- Filters & Search Bar -->
     <div style="background: #F8FAFC; border: 1.5px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
         <form action="{{ route('bast.history') }}" method="GET" style="margin: 0;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: flex-end;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; align-items: flex-end;">
                 
                 <!-- Search Input -->
                 <div class="form-group" style="margin: 0;">
@@ -105,10 +105,10 @@
                     </td>
                     <td style="text-align: center;">
                         <div class="flex gap-2" style="justify-content: center;">
-                            <a href="{{ route('bast.show', $bast->id) }}" class="btn btn-sm btn-secondary btn-icon" title="Lihat Detail BAST">
+                            <a href="{{ route('bast.show', $bast->id) }}" class="btn btn-sm btn-icon" style="background-color: #b9b5b545 !important; color: black !important; border: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);" title="Lihat Detail BAST">
                                 <i class='bx bx-show'></i>
                             </a>
-                            <a href="{{ route('bast.export', $bast->id) }}" class="btn btn-sm btn-success btn-icon" title="Cetak via Excel">
+                            <a href="{{ route('bast.export', $bast->id) }}" class="btn btn-sm btn-icon" style="background-color: #2563EB !important; color: white !important; border: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);" title="Cetak via Word">
                                 <i class='bx bx-file-blank'></i>
                             </a>
                         </div>

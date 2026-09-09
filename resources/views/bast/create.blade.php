@@ -56,13 +56,6 @@
             </div>
         </div>
 
-        <div class="grid-2">
-            <div class="form-group">
-                <label class="form-label">Tanggal Diterima (Opsional)</label>
-                <input type="date" name="tgl_diterima" class="form-control" value="{{ old('tgl_diterima') }}">
-                @error('tgl_diterima') <span class="text-danger">{{ $message }}</span> @enderror
-            </div>
-
             <div class="form-group">
                 <label class="form-label">Keterangan / Catatan Tambahan</label>
                 <textarea name="keterangan" class="form-control" placeholder="Tuliskan keterangan detail di sini..." rows="3">{{ old('keterangan') }}</textarea>
@@ -112,6 +105,7 @@
         </div>
     </form>
 </div>
+@endsection
 
 @push('scripts')
 <script>

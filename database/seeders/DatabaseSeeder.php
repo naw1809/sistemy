@@ -33,21 +33,5 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('staff123'),
             'role' => 'staff',
         ]);
-
-        User::create([
-            'name' => 'Olip',
-            'username' => 'olip',
-            'email' => 'olip@sistemy.com',
-            'password' => Hash::make('staff123'),
-            'role' => 'staff',
-        ]);
-
-        User::create([
-            'name' => 'Ummul Hamdiyyah',
-            'username' => 'ummul',
-            'email' => 'ummul@sistemy.com',
-            'password' => Hash::make('staff123'),
-            'role' => 'staff',
-        ]);
     }
 }

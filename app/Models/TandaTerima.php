@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TandaTerima extends Model
 {
-    public function tandaTerima()
-    {
-        return $this->hasMany(TandaTerima::class);
-    }
+    use HasFactory;
+
+    protected $fillable = [];
 }
